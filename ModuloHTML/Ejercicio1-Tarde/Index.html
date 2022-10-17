@@ -8,22 +8,60 @@
 </head>
 <body>
     <header>
-        <ul>
-            <li>Home</li>
-            <li>Elegir tu curso</li>
-            <li>formulario</li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#elegir">Elegir tu curso</a></li>
+                <li><a href="#formulario">Formulario</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
         <section>
-            <h1>Eligi tu curso deseado</h1>
+            <h1>Eligí tu curso deseado</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim commodi ab tempore nihil magnam esse,
                 incidunt in praesentium, debitis velit qui quo voluptas, error quis ea odio totam. Corporis, temporibus.
             </p>
         </section>
 
+        <br>
         <section>
+            <table>
+                <tr>
+                    <th>Curso</th>
+                    <th>Precio</th>
+                    <th>h/Semanales</th>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>500</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>500</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>750</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>React</td>
+                    <td>1000</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>NodeJS</td>
+                    <td>1000</td>
+                    <td>30</td>
+                </tr>
+            </table>
+        </section>
+        <br>
+        <section id="elegir">
             <label for="curso">Cursos:</label>
             <input list="lista" id="curso" name="lista">
 
@@ -36,7 +74,10 @@
             </datalist>
         </section>
 
-        <section>
+        <br>
+        <br>
+
+        <section id="formulario">
             <form action="">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre">
@@ -70,7 +111,7 @@
                 <label for="aceptar">Aceptar terminos y condiciones</label>
                 <br>
                 <br>
-                <button>Enviar</button>
+                <button type="submit">Enviar</button>
         </section>
 
         <section>
@@ -78,12 +119,13 @@
                 <source src="video/Mi proyecto 1 2022-09-22_15-39-05.mp4" type="video/mp4">
               </video>
         </section>
+
     </main>
 
     <footer>
         <p>Home</p>
         <p>Elegir tu curso</p>
-        <p>formulario</p>
+        <p>Formulario</p>
         <p>Copyright&copy; 2022 - - Todos los derechos reservados</p>
     </footer>
 </body>
