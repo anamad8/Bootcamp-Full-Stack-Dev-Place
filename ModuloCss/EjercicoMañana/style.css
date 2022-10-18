@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: black ;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    left: 0px;
+    top: 0px;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    
+    
+}
+
+.logo img{
+    position: absolute;
+    width: 115px;
+    height: 116px;
+    left: 31px;
+    top: 17px;
+    
+}
+
+.nav{
+    margin-right: 100px;
+}
+
+.nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18px;
+    padding: 20px;
+
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 900;
+    
+    
+}  
+
+main{
+    position: absolute;
+    top: 197px;
+
+}
+
+.titulo{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo h1{
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 23px;
+}
+
+.titulo p{
+    margin-top: 25px;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18px;
+}
+
+.gamas{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: white;
+}
+
+.gamas h4{
+    margin: 5px 20px;
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.gamas p{
+    margin: 5px 25px;
+    font-weight: 300;
+    font-family: 'Comic Neue';
+    font-style: normal;
+}
+
+.p208{
+    margin: 75px 20px;
+    width: 250px;
+    height: 350px;   
+    background: rgba(0, 0, 0, 0.53);
+    mix-blend-mode: hard-light;
+}
+
+.p208 img{
+
+    width: 250px;
+    height: 200px;
+    
+}
+
+.p3008 img{
+        
+    width: 250px;
+    height: 200px;
+    
+}
+
+.p3008{
+    margin: 75px 20px;
+    width: 250px;
+    height: 350px;
+    
+
+    background: rgba(0, 0, 0, 0.53);
+    mix-blend-mode: hard-light;
+}
+
+.p5008{
+    margin: 75px 20px;
+    width: 250px;
+    height: 350px;
+    
+
+    background: rgba(0, 0, 0, 0.53);
+    mix-blend-mode: hard-light;
+}
+
+.p5008 img{
+        
+    width: 250px;
+    height: 200px;
+    
+}
+.beneficios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.beneficios h2{
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 35px;
+   
+
+}
+
+.descripcion{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.beneficios p{
+    margin-top: 15px;
+    margin-left: 100px; 
+}
+
+.beneficios img{
+    margin: 15px 100px;
+    width: 897px;
+    height: 391px;
+}
+
+footer{
+    position: absolute;
+    background-color: black;
+    height: 161px;
+    top: 1400px;
+    width: 100%;
+}
+
+footer img{
+    
+    width: 115px;
+    height: 116px;
+    margin: 20px;
+    
+}
