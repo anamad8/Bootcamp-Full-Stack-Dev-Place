@@ -1,0 +1,34 @@
+// variable
+$colorPrimario: black;
+$colorLetra: rgb(250, 250, 250);
+$tamañoLetra:  20px;
+
+@mixin headerStyle ($colorPrimario) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $colorPrimario;
+}
+
+header{
+   @include headerStyle(rgb(37, 36, 36));
+}
+
+.logo{
+    margin: 10px;
+    img{
+        width: 100px;
+    }
+}
+
+.nav{
+    display: flex;
+    margin-right: 50px;
+
+
+    p{
+        margin: 15px;
+        color: $colorLetra;
+        font-size: $tamañoLetra + 5px;
+    }
+}
