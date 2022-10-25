@@ -59,13 +59,13 @@ for (let i = 0; i < meses.length; i++) {
 // los factores n x (n-1) x (n-2) x ... x 1. Así, el factorial de 5 (escrito como 5!) 
 // es igual a: 5! = 5 x 4 x 3 x 2 x 1 = 120.
 
-let numero = prompt("Introduce un número y se mostrará su factorial");
-let resultado = 1;
+// let numero = prompt("Introduce un número y se mostrará su factorial");
+// let resultado = 1;
 
-for(let i=1; i<=numero; i++) {
-  resultado *= i;
-}
-alert(resultado);
+// for(let i=1; i<=numero; i++) {
+//   resultado *= i;
+// }
+// alert(resultado);
 
 
 
