@@ -35,21 +35,12 @@ switch(menu){
     case "4":
         let buscarDni  = parseInt(prompt(agenda + " escribi el DNI que vas a buscar..."))
 
-        agenda.forEach(element => {
-            element.forEach(elem => {
+        let index = agenda.findIndex(element => element[0] === buscarDni )
+        console.log(index)
+        window.alert( `es igual al dni que buscate  ${agenda[index]}`)
 
-                if (elem === buscarDni) {
-                    window.alert( `es igual al dni que buscate ${elem} \n ${element}`)
-                    
-                }
-                else{
-                    window.alert("el dni no fue encontrado")
-                    
-                }
-                
-            });
-           
-        });
+        
+        
         break;
 
         default: alert("Ingrese una opcion valida")
