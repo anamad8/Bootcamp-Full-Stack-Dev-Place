@@ -1,191 +1,194 @@
-class Persona {
-     constructor(dni, nombre, apellido, telefono){
-         this.dni = dni;
-         this.nombre = nombre;
-         this.apellido = apellido;
-         this.telefono = telefono;
-     }
- }
- 
- 
- const agenda = [];
- 
-  
- 
- //  se visualiza en el HTML
-  const contenedorAgenda = document.querySelector('.tabla tbody');
-  
-  function agendaHTML() {
- 
-     vaciar();
-  
-     agenda.forEach(contacto => {
-           const row = document.createElement('tr')
- 
-           row.innerHTML = `
-                <td>${contacto.dni}</td>
-                <td>${contacto.nombre}</td>
-                <td>${contacto.apellido}</td>
-                <td>${contacto.telefono}</td>
-                <td><button>Editar</button></td>
-                <td><button id="${contacto.dni}" onclick="borrar(${contacto.dni})">Borrar</button></td>
-                `
-           ;
-           contenedorAgenda.appendChild(row);
-  
-      });
-  
-  
-  }
-  
-  agendaHTML()
- 
-     function agregarContacto() {
- 
-         let dni = parseInt(prompt('DNI del contacto'));
-         let nombre = prompt('Nombre del contacto');
-         let apellido = prompt('Apellido del contacto')
-         let telefono = prompt('Telefono del contacto');
- 
-         let contacto = new Persona(dni, nombre, apellido, telefono);
- 
-         agenda.push(contacto);
-         console.log(agenda)
- 
-         agendaHTML()
-     };
-  
- 
-  function vaciar() {
- 
-     contenedorAgenda.innerHTML = '';
- }
- 
- function borrar(dni) {
-     let persona = agenda.find( ele => ele.dni === dni );
-     let indiceAEliminar = agenda.indexOf(persona);
-     agenda.splice(indiceAEliminar, 1);
-     agendaHTML();
- }
+//  creo un array
+let listaPersona = [];
+
+// creo un objeto
+const objPersona = {
+    dni: '',
+    nombre: '',
+    apellido: '',
+    telefono: '',
+    
+}
+
+// creo una variable para dectectar cuando tiene que agregar o editar
+let editando = false;
 
 
+// llamo a las selectores
+const formulario = document.querySelector("#formulario");
+const dniInput = document.querySelector("#dni");
+const nombreInput = document.querySelector("#nom");
+const apellidoInput = document.querySelector("#ape");
+const telefonoInput = document.querySelector("#tel");
+const btnAgregar = document.querySelector("#btnAgregar");
+
+// creo el evento para el bonton validar el formulario 
+formulario.addEventListener('submit', validarFormulario);
+
+// funcion valida formulario  
+function validarFormulario(e){
+    e.preventDefault();
+    
+    if(dniInput.value === '' || nombreInput.value === '' || apellidoInput.value === '' || telefonoInput.value === ''){
+        alert("Todos los campos son obligatorios")
+        return;
+    }
+
+    if(editando){
+        editarPersona();
+        editando = false;
+    }else{  
+        objPersona.dni = dniInput.value;
+        objPersona.nombre  = nombreInput.value;
+        objPersona.apellido  = apellidoInput.value;
+        objPersona.telefono  = telefonoInput.value;
+
+        agregarPesrona();
+        
+    }
+}
+
+function agregarPesrona(){
+    listaPersona.push({...objPersona});
+    
+    mostrarPersona();
+
+    formulario.reset();
+
+    limpiarObjeto();
+
+    
+}
+
+function limpiarObjeto(){
+    objPersona.dni = "";
+    objPersona.nombre = "";
+    objPersona.apellido = "";
+    objPersona.telefono = "";
+}
 
 
+function  mostrarPersona(){
 
+    limpiarHtml();
 
+    const divEmpleados = document.querySelector('.div-persona');
 
+    listaPersona.forEach(empleado => {
+        const { dni, nombre, apellido, telefono} = empleado;
 
+        const parrafo = document.createElement('p');
+        parrafo.textContent = `${dni} - ${nombre} - ${apellido} - ${telefono} - `;
+        parrafo.dataset.dni = dni;
 
+        const editarBoton = document.createElement('button');
+        editarBoton.onclick = () => cargarPersona(empleado);
+        editarBoton.textContent = "Editar";
+        editarBoton.classList.add('btn', 'btn-editar');
+        parrafo.append(editarBoton);
 
+        const eliminarBoton = document.createElement('button');
+        eliminarBoton.onclick = () => borrarBoton(dni);
+        eliminarBoton.textContent = "Borrar";
+        eliminarBoton.classList.add('btn', 'btn-borrar');
+        parrafo.append(eliminarBoton);
 
+        const hr = document.createElement('hr');
+        divEmpleados.appendChild(parrafo);
+        // divEmpleados.appendChild(hr);
+    })
+}
 
+function cargarPersona(empleado){
+    const { dni, nombre, apellido, telefono} = empleado;
 
+    dniInput.value = dni;
+    nombreInput.value = nombre;
+    apellidoInput.value = apellido;
+    telefonoInput.value = telefono;
 
+    objPersona.dni = dni;
 
+    formulario.querySelector('button[type="submit"]').textContent = 'Actualizar';
 
+    editando =true;
 
+}
 
+function editarPersona(){
 
-// const agenda = []
+    objPersona.dni = dniInput.value;
+    objPersona.nombre = nombreInput.value;
+    objPersona.apellido = apellidoInput.value;
+    objPersona.telefono = telefonoInput.value;
 
-// const contenedorAgenda = document.querySelector('.tabla tbody');
- 
-// function agendaHTML() {
+    listaPersona.map(empleado =>{
+        // console.log(empleado.dni)
+        // console.log(listaPersona[0].dni)
+        if(empleado.dni === objPersona.dni){
 
-//      vaciar();
- 
-//      agenda.forEach(contacto => {
-//           const row = document.createElement('tr')
-//           row.className = `dni`
-//           row.innerHTML = `
-//                <td>${contacto.dni}</td>
-//                <td>${contacto.nombre}</td>
-//                <td>${contacto.apellido}</td>
-//                <td>${contacto.telefono}</td>
-//                <td><button>Editar</button></td>
-//                <td><button class="borrar" onclick=""borrar(${contacto.dni})" >Borrar</button></td>
-//                `
-//           ;
-//           contenedorAgenda.appendChild(row);
-          
-//      });
+            empleado.dni = objPersona.dni;
+            empleado.nombre = objPersona.nombre;
+            empleado.apellido = objPersona.apellido;
+            empleado.telefono = objPersona.telefono;
 
-//      // <td><button id="${contacto.dni}" onclick="borrar()">Borrar</button></td>
- 
- 
-// }
+        }
+    });
 
- 
-// agendaHTML()
+    limpiarHtml();
 
+    mostrarPersona();
 
-// function mostrarDatos() {
-     
-//      let dni = document.getElementById("dni").value;
-//      let nombre = document.getElementById("nom").value;
-//      let apellido = document.getElementById("ape").value;
-//      let telefono = document.getElementById("tel").value;
+    formulario.reset();
 
-//      agenda.push({dni,nombre,apellido,telefono})
-     
-//      agendaHTML()
-// }
- 
-// function vaciar() {
-//      // forma lenta
-//      contenedorAgenda.innerHTML = '';
-// }
+    formulario.querySelector('button[type="submit"]').textContent = "Agregar";
 
+    editando = false;
 
+}
 
-// // Cuando se elimina un contacto de la lista
-// contenedorAgenda.addEventListener('click', eliminarCurso);
-// function eliminarCurso() {
-//      let dni = 1
-//      console.log(dni)
-//      let contactoAEliminar = agenda.find( ele => console.log(ele.dni) );
-//      // let contactoAEliminar = agenda.find( ele => ele.dni === dni );
-//      // console.log(contactoAEliminar)
-//      // let indiceAEliminar = agenda.indexOf(contactoAEliminar);
-//      // agenda.splice(indiceAEliminar, 1);
-     
-     
+function borrarBoton(dni){
+    
+    listaPersona = listaPersona.filter(empleado => empleado.dni !== dni);
 
-     
-     
-// }
+    limpiarHtml();
+    mostrarPersona();
 
+}
 
-//  function borrar() {
-     
-//      document.querySelector("tbody").removeChild(this)
+function limpiarHtml(){
+    const divEmpleados = document.querySelector('.div-persona');
+    while (divEmpleados.firstChild) {
+        divEmpleados.removeChild(divEmpleados.firstChild);
+    }
+}
 
+// Funciones para ordenar contactos
 
-//      // let doc = document.querySelector(`.d1`)
-//      // doc.innerHTML = '';
+let botonAscendente = document.querySelector('#btnA')
+let botonDescendente = document.querySelector('#btnZ')
 
-//      // const idDni = this.id
-     
-//      // console.log(this.borrar)
+botonAscendente.onclick = () => {
+    listaPersona.sort(function (a,b){
+        if(a.apellido > b.apellido){
+            return 1;
+        }else if(a.apellido < b.apellido){
+            return -1;
+        }else{
+        return 0
+        };
+    })
+    mostrarPersona()
+}
 
-
-//      // let dniDato = agenda.map(dni=> dni.dni)
-//      // console.log(dniDato)
-//      // let borra = agenda.filter(dato => console.log(dato.dni === agenda[0].dni))
-     
-//      // const keys = Object.keys(agenda)
-//      // const userCleaned = {}
-
-//      // keys.forEach(key => {
-//      //      if(key !== 0){
-//      //           userCleaned[key] = agenda[key]
-//      //      }
-//      // })
-
-//      // console.log(userCleaned)
-     
-// }
-
-
-
- 
+botonDescendente.onclick = () => {
+    listaPersona.sort(function (a,b){
+        if(a.apellido < b.apellido){
+            return 1;
+        }else if(a.apellido > b.apellido){
+            return -1;
+        }else
+        return 0;
+    })  
+    mostrarPersona()
+}
