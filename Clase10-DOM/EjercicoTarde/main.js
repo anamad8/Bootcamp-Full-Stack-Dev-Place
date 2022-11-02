@@ -21,6 +21,7 @@ const nombreInput = document.querySelector("#nom");
 const apellidoInput = document.querySelector("#ape");
 const telefonoInput = document.querySelector("#tel");
 const btnAgregar = document.querySelector("#btnAgregar");
+const btnBuscar = document.querySelector('#btnBuscar')
 
 // creo el evento para el bonton validar el formulario 
 formulario.addEventListener('submit', validarFormulario);

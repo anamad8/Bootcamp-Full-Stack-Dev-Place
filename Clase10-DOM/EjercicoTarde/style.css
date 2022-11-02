@@ -55,7 +55,6 @@ body{
     display: flex;
     flex-direction: column;
     align-content: center;
-    /* background-color: #fff;s */
     height: 350px;
     width: 70%;
     margin-top: 30px;
@@ -89,7 +88,7 @@ body{
 
 
 .div-formulario form button{
-    margin-top: 60px;
+    margin-top: 30px;
     padding: 8px;
     border: none;
     border-radius: 5px;
