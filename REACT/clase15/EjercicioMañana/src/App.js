@@ -43,11 +43,10 @@ function App() {
       <h3>User names</h3>
       <div>
         <ul>
-          {users.map(usuario => {
-            return(
+          {users.map(usuario => (
               <li key={usuario.id}>{usuario.name}</li>
             )
-          })}
+          )}
         </ul>
       </div>
 
