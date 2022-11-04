@@ -3,6 +3,8 @@ import './App.css';
 
 function App() {
 
+  const titulo = <h1>Hola JSX</h1>
+
 // creo el array
   const users = [
     { name: "Jorge Oredoñez", id: 1 },
@@ -39,8 +41,8 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Hola JSX</h1>
-      <h3>User names</h3>
+      {titulo}
+      <h3>Nombres de Usuarios</h3>
       <div>
         <ul>
           {users.map(usuario => (
