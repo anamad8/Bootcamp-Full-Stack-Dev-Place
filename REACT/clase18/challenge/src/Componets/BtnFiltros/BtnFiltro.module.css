@@ -1,0 +1,19 @@
+.filtro{
+    width: 25%;
+    margin-left: 1em;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 60px;
+    
+}
+
+.filtro button{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
