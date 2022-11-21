@@ -1,30 +1,36 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import style from'./Heder.module.css';
 import logo from '../../img/yl.png'
 import { Link } from 'react-router-dom';
-import {BsCart3} from 'react-icons/bs';
 import { FaSearch } from "react-icons/fa";
+import { DataContext} from '../../Contex/DataContex'
+import Carrito from '../Carrito/Carrito'
 
 function Header() {
+
+  const { busqueda, setBusqueda } = useContext(DataContext )
+
+  const handleChange=e=>{
+    setBusqueda(e.target.value);
+    
+  }
+
+
   return (
     <div className={style.header}>
         <div className={style.logo}>
-            <img src={logo} alt="" />
+            <Link to="/"><img src={logo} alt="" /></Link>
         </div>
         <div className={style.link}>
             <Link to="/">Home</Link>
-            <Link>Mujer</Link>
-            <Link>Hombre</Link>
-            <Link>FAQ</Link>
+            <Link to="/Productos">Producto</Link>
+            <Link to="/Faq">FAQ</Link>
         </div>
         <div className={style.buscar}>
-          <input type="text" placeholder='Buscar...'/>
+          <input type="text" placeholder='Buscar...' value={busqueda} onChange={handleChange}/>
           <button><FaSearch/></button>
         </div>
-        <div className={style.cart}>
-            <BsCart3 className={style.icon}/>
-            <span>0</span>
-        </div>
+        <Carrito/>
     </div>
   )
 }

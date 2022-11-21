@@ -3,7 +3,7 @@
     top: 90px;
     overflow: hidden; 
     height: 500px;
-    margin-bottom: 50px;
+    margin-bottom:39px;;
 }
 
 .contenidoCrusel img{
@@ -14,15 +14,16 @@
 
 
 .cardProductos{
-    top: 90px;
     height: 500px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
+    align-content: center;
 }
 
-img{
+.cardProductos img{
     height: 300px;
     border-radius: 8px 8px 0px 0px    ;
     -webkit-border-radius: 8px 8px 0px 0px    ;
@@ -34,9 +35,8 @@ img{
 .cardProductos .card{
     border: #000 1px solid;
     box-shadow: 0px 0px 15px 0px;
+    margin: 10px 10px;
     border-radius: 8px;
-    margin-left: 10px;
-    margin-right: 10px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
@@ -44,7 +44,6 @@ img{
 }
 
 .cardProductos .card:hover{
-    /* box-shadow: 0px 0px 15px 0px; */
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
@@ -60,7 +59,7 @@ img{
     background-color: rgba(0, 0, 0, 0.500);
     width: 100%;
     position:relative ;
-    top: -60px;
+    top: -24px;
     overflow: hidden;
     
     
@@ -68,6 +67,7 @@ img{
 
 .home img{
     margin: 30px 15px;
+    width: 300px;
 }
 
 .home img:hover{
@@ -78,6 +78,7 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .home .ropa p{
@@ -85,3 +86,107 @@ img{
     color: #fff;
     word-wrap: 800;
 }
+
+
+/* --------------------------Media-------------- */
+
+/* -----------------------------celular -----------------------------------------------------------*/
+@media screen  and (max-width: 320px){
+    .contenidoCrusel{
+        display: none;
+    }
+
+    .home .ropa{
+        display:none
+    }
+    
+}
+
+@media screen and  (min-width: 321px) and (max-width: 493px){
+    .contenidoCrusel{
+        display: none;
+    }
+
+    .home{
+        flex-wrap: wrap;
+    }
+
+    .home .ropa{
+        display:none
+    }
+
+}
+
+  /*---------------------------------------- table------------------------------------------------------------- */
+@media only screen and (max-width: 519px){
+    .home {
+        flex-wrap: wrap;
+    }
+
+    .contenidoCrusel{
+        display: none;
+    }
+
+    .home .ropa{
+        display:none
+    }
+    .cardProductos{
+        height:  1718px;;
+    }
+}
+
+@media only screen and (min-width: 520px) and (max-width: 740px){
+    .home {
+        flex-wrap: wrap;
+    }
+
+    .contenidoCrusel{
+        display: none;
+    }
+
+    .home .ropa{
+        display:none
+    }
+
+    .cardProductos{
+        height:  973px;
+    }
+    
+
+}
+
+/* -------------------------------medida especial---------------------------------------------------------- */
+@media only screen  and (max-width: 935px){
+
+    .home .ropa{
+        display:none
+    }
+    
+
+}
+
+@media only screen and (min-width: 741px) and (max-width: 1039px){
+    .cardProductos{
+        height: 865px;
+    }
+}
+@media only screen and (max-width: 1249px){
+
+    .home{
+        top:0px;
+    }
+
+}
+
+    /*--------------------------------------- pc 1920 --------------------------------------------------*/
+@media only screen and (min-width: 1040px) and (max-width: 1920px){
+    .cardProductos{
+        height: 510px;
+    }
+
+}
+
+
+
+
+

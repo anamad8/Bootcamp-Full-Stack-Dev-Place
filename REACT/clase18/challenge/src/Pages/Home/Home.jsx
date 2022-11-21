@@ -1,24 +1,27 @@
-import React from 'react';
-import Header from '../../Componets/Header/Header';
+import React,{ useContext } from 'react';
 import style from './Home.module.css';
 import { Link } from 'react-router-dom';
 import imgMujer from '../../img/mujer.jpg';
 import imgHombre from '../../img/hombre.jpg';
-import Slider from '../../Componets/Slider/Slider';
 
 import imgCrusel1 from '../../img/carusel1.jpg';
 import imgCrusel4 from '../../img/carusel4.jpg';
 import imgCrusel5 from '../../img/carusel5.jpg';
 
-import img1 from '../../img/jeans1.jpg';
-import img2 from '../../img/remera1.jpeg';
-import img3 from '../../img/vestido1.jpeg';
-import img4 from '../../img/remera2.jpeg';
-import img5 from '../../img/vestido2.jpeg';
 
+import Footer from '../../Componets/Footer/Footer';
+import { DataContext } from '../../Contex/DataContex';
+import Card from '../../Componets/Card/Card';
 
 
 function Home() {
+
+  const {  articulos, busqueda } = useContext(DataContext )
+  
+  const filtro5Articulos = articulos.filter(bajo => bajo.precio <= 2500)
+
+  const resultado = !busqueda ?  filtro5Articulos : articulos.filter(dato => (dato.categoria.toLowerCase().includes(busqueda.toLowerCase()) ))
+  
     
   return (
     <>
@@ -52,26 +55,13 @@ function Home() {
       </div>
 
       <div className={style.cardProductos}>
-        <div className={style.card}>
-            <img src={img1} alt="" />
-            <p>Precio:</p>
-        </div>
-          <div className={style.card}>
-          <img src={img2} alt="" />
-          <p>Precio:</p>
-        </div>
-        <div className={style.card}>
-          <img src={img3} alt="" />
-          <p>Precio:</p>
-        </div>
-        <div className={style.card}>
-            <img src={img4} alt="" />
-            <p>Precio:</p>
-        </div>
-          <div className={style.card}>
-          <img src={img5} alt="" />
-          <p>Precio:</p>
-        </div>
+
+        {
+            resultado.map(dato => (
+                <Card  key={dato.id} id={dato.id} genero={dato.genero} img={dato.img} categoria={dato.categoria} img2={dato.img2}
+                        titulo={dato.titulo} precio={dato.precio}/>
+            ))    
+        }
         
       </div>
 
@@ -85,17 +75,19 @@ function Home() {
           </p>
         </div>
           
-        <Link to="/Mujer" ><img src={imgMujer} alt="" /></Link>
-        <Link to="/Hombre"><img src={imgHombre} alt="" /></Link>
+        <Link to="/Productos" ><img src={imgMujer} alt="" /></Link>
+        <Link to="/Productos"><img src={imgHombre} alt="" /></Link>
+        
         <div className={style.ropa}>
           <h2>Ropa para ellos</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi accusantium sed,
-             dolor voluptas commodi, officia architecto perferendis suscipit iste quo saepe deleniti natus 
-             laboriosam fugiat nostrum hic molestias doloribus dolorum!
+              dolor voluptas commodi, officia architecto perferendis suscipit iste quo saepe deleniti natus 
+              laboriosam fugiat nostrum hic molestias doloribus dolorum!
           </p>
         </div>
       </div>
-        
+    
+    <Footer/> 
     </>
   )
 }

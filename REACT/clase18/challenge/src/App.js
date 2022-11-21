@@ -2,23 +2,29 @@ import './App.css';
 import { Routes, Route} from "react-router-dom";
 import Header from './Componets/Header/Header.jsx';
 import Home from './Pages/Home/Home.jsx';
-import Mujer from './Pages/Mujer/Mujer';
-import Hombre from './Pages/Hombre/Hombre';
+import Productos from './Pages/Productos/Productos';
+import Faq from './Pages/Faq/Faq';
+import Comprar from './Pages/Comprar/Comprar';
+
+
 
 
 function App() {
+
   return (
     <>
+
       <Header/> 
+
       <Routes>
         <Route exact path="/" element={<Home/>} />
-        <Route exact path="/Mujer" element={<Mujer/>} />
-        <Route exact path="/Hombre" element={<Hombre/>} />
+        <Route exact path="/Productos" element={<Productos/>} />
+        <Route exact path="/Faq" element= {<Faq/>} />
+        <Route exact path="/Comprar" element= {<Comprar/>} />
       </Routes>
+
     </>
-     
-   
-   
+
   );
 }
 

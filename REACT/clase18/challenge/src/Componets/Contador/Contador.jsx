@@ -4,7 +4,7 @@ import { DataContext } from '../../Contex/DataContex';
 
 function Contador({ stock, initial }) {
 
-    const [contador, setContador] = useState(0)
+    const [contador, setContador] = useState(1)
 
     const {cantidadRompa} = useContext(DataContext )
 
